@@ -98,14 +98,26 @@ const simpleBarChart = () => {
   let vGuide = d3.select('svg').append('g')
   vAxis(vGuide)
   vGuide.attr('transform', 'translate('+ margin.left +', ' + margin.top + ')')
-
-  // let hGuideScale = d3.scaleLinear()
-  //   .domain([0, myData.length])
-  //   .range([0, width])
-  let hAxis = d3.axisBottom(xScale)
-    .tickValues(xScale.domain().filter((d, i) => !(i % (myData.length/5))))
+  let range = d3.range(0, myData.length, 16)
+  let hGuideScale = d3.scaleBand()
+    .domain(range)
+    .range([0, width])
+  let hAxis = d3.axisBottom(hGuideScale)
+    .scale(xScale)
+    .tickFormat(function(d, i) {
+      return myData[range[i]][0].slice(0, 4)
+    })
+    .tickValues(range)
   let hGuide = d3.select('svg').append('g')
   hAxis(hGuide)
   hGuide.attr('transform', 'translate(' + margin.left + ', ' + (height + margin.top) + ')')
+
+  let text = d3.select('svg')
+    .append('text')
+    .text('Gross Domestic Product, USA')
+    .attr('transform', function(d) {
+      console.log(this)
+      return 'translate(' + ((width - this.getComputedTextLength()) / 2 + margin.left) + ', ' + margin.top + ')'
+    })
 
 }
