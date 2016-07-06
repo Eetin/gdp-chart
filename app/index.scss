@@ -1,0 +1,36 @@
+@import 'https://fonts.googleapis.com/css?family=Roboto:100';
+
+$color1: #ffa400; //rgba(255, 164, 0, 100)
+$color2: #009ffd; //rgba(0, 159, 253, 100)
+$color3: #2a2a72; //rgba(42, 42, 114, 100)
+$color4: #232528; //rgba(35, 37, 40, 100)
+$color5: #eaf6ff; //rgba(234, 246, 255, 100)
+$color6: #99d8c9;
+$color7: #e5f5f9;
+
+body {
+  background-color: $color6;
+}
+
+svg {
+  margin-top: 50px;
+  background: $color7;
+}
+
+text {
+  fill: $color3;
+}
+
+path, .tick {
+  font-family: 'Roboto';
+  font-size: 1.3em;
+  stroke: $color3;
+  line {
+    stroke: $color3;
+  }
+}
+
+.tooltip {
+  background-color: $color6;
+  pointer-events: none;
+}
