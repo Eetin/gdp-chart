@@ -49,9 +49,11 @@
 
 /***/ },
 /* 1 */
-/***/ function(module, exports) {
+/***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
+	
+	__webpack_require__(2);
 	
 	d3.json('https://raw.githubusercontent.com/FreeCodeCamp/ProjectReferenceData/master/GDP-data.json', function (d) {
 	  barChart(d.data);
@@ -167,6 +169,12 @@
 	  });
 	}
 
+/***/ },
+/* 2 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
+
 /***/ }
 /******/ ]);
-//# sourceMappingURL=index_bundle.js.map
+//# sourceMappingURL=main.js.map

@@ -1,0 +1,22 @@
+body {
+  background-color: #99d8c9; }
+
+svg {
+  margin-top: 50px;
+  background: #e5f5f9; }
+
+text {
+  fill: #2a2a72; }
+
+path, .tick {
+  font-family: 'Roboto';
+  font-size: 1.3em;
+  stroke: #2a2a72; }
+  path line, .tick line {
+    stroke: #2a2a72; }
+
+.tooltip {
+  background-color: #99d8c9;
+  pointer-events: none; }
+
+/*# sourceMappingURL=styles.css.map*/

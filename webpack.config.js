@@ -4,14 +4,16 @@ var HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   filename: 'index.html',
   inject: 'body'
 });
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
   entry: [
-    './app/index.js'
+    './app'
   ],
   output: {
     path: __dirname,
-    filename: "index_bundle.js"
+    filename: "[name].js",
+    chunkFilename: "[id].js"
   },
   module: {
     loaders: [
@@ -23,12 +25,19 @@ module.exports = {
           presets: ['es2015', 'stage-2']
         }
       },
-      { test: /\.scss$/, loaders: ["style", "css", "sass"] }
+      {
+        test: /\.scss$/,
+        include: __dirname + '/app',
+        loader: ExtractTextPlugin.extract("css-loader!sass-loader")
+      }
     ]
   },
+  devtool: "source-map",
   node: {
     fs: "empty"
   },
-  devtool: "source-map",
-  plugins: [HtmlWebpackPluginConfig]
-}
+  plugins: [
+    HtmlWebpackPluginConfig,
+    new ExtractTextPlugin("styles.css", { allChunks: true })
+  ]
+};

@@ -1,3 +1,5 @@
+require('./index.scss')
+
 d3.json('https://raw.githubusercontent.com/FreeCodeCamp/ProjectReferenceData/master/GDP-data.json', d => {
   barChart(d.data)
 })
